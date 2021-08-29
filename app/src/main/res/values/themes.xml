@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.BeerFinder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">#1B5E20</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>
+
+        //This will allow us to see the icons in the status bar while is white, which gives a very minimalistic feeling.
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+        //Splash screen style->
+    <style name="SplashScreen" parent="Theme.BeerFinder">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+</resources>

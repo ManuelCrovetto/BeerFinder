@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BeerFinder</string>
+    <string name="error_description_dialog_placeholder">Oops, an error occurred, try again later please!</string>
+    <string name="ok_placeholder">OK</string>
+    <string name="loading_placeholder">Loading…</string>
+    <string name="see_details_button_placeholder">See details</string>
+    <string name="search_placeholder">Search beers…</string>
+    <string name="degrees_details_placeholder">Alcohol by volume: %1$sº</string>
+    <string name="app_title_placeholder">Beer Finder</string>
+    <string name="empty_placeholder">This field is empty.</string>
+    <string name="go_back_button_placeholder">GO BACK</string>
+    <string name="nothing_to_show_textview_placeholder">Nothing to show…</string>
+    <string name="lost_connection_snack_bar_placeholder">Connection lost. Reconnecting…</string>
+    <string name="reconnected_snack_bar_placeholder">Connected</string>
+</resources>
