@@ -6,7 +6,7 @@ lead you to its details, such as image, name, alcohol by volume, and description
 
 ### Libraries I used for BeerFinder App:
 
-  ##Architecture
+  ## Architecture
   * Clean Architecture integrated in a MVVM Pattern
   * Livedata
   * Navigation Component with SafeArgs
