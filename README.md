@@ -24,4 +24,9 @@ lead you to its details, such as image, name, alcohol by volume, and description
   
   ## REST API
   * Retrofit
+
+  ## Unit Testing
+  * Mockito
+  * Coroutines Test
+  * Arch Core
   
