@@ -4,7 +4,7 @@
 It is meant to be a beer finder which lets you introduce a beer name and look up for all matches related to that name, showing results in a list, clicking on any beer will
 lead you to its details, such as image, name, alcohol by volume, and description. Works with Punk API :).
 
-### Libraries I used for BeerFinder App:
+## Libraries I used for BeerFinder App:
 
   ## Architecture
   * Clean Architecture integrated in a MVVM Pattern
