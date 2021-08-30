@@ -50,6 +50,36 @@ class BeerFinderFragment @Inject constructor(
 
     }
 
+    private fun setUpRecyclerView() {
+        binding.recyclerView.apply {
+            adapter = this@BeerFinderFragment.adapter
+            layoutManager = LinearLayoutManager(requireContext())
+        }
+    }
+
+    private fun initObservers() {
+        with(viewModel) {
+            beerList.observe(viewLifecycleOwner) { beerList ->
+                adapter.setData(beerList)
+            }
+
+            lifecycleScope.launchWhenStarted {
+                viewState.collect { viewState ->
+                    updateUI(viewState)
+                }
+            }
+
+        }
+    }
+
+    private fun initBeersSearch() {
+        binding.editTextSearch.addTextChangedListener {
+            it?.let {
+                viewModel.searchBeers(it.toString())
+            }
+        }
+    }
+
     private fun initRecyclerViewListeners() {
         adapter.onClickListener = {
             val action = BeerFinderFragmentDirections.actionBeerFinderFragmentToBeerDetailsFragment(
@@ -64,28 +94,7 @@ class BeerFinderFragment @Inject constructor(
         }
     }
 
-    private fun initBeersSearch() {
-        binding.editTextSearch.addTextChangedListener {
-            it?.let {
-                viewModel.searchImages(it.toString())
-            }
-        }
-    }
 
-    private fun initObservers() {
-        with(viewModel) {
-            beerList.observe(viewLifecycleOwner) {
-                adapter.setData(it)
-            }
-
-            lifecycleScope.launchWhenStarted {
-                viewState.collect { viewState ->
-                    updateUI(viewState)
-                }
-            }
-
-        }
-    }
 
     private fun updateUI(viewState: BeerFinderViewState) {
         with(binding) {
@@ -106,11 +115,6 @@ class BeerFinderFragment @Inject constructor(
         ).showDialog(dialogFragmentLauncher = dialogFragmentLauncher, requireActivity())
     }
 
-    private fun setUpRecyclerView() {
-        binding.recyclerView.apply {
-            adapter = this@BeerFinderFragment.adapter
-            layoutManager = LinearLayoutManager(requireContext())
-        }
-    }
+
 
 }

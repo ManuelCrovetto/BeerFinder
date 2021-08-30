@@ -22,7 +22,6 @@ class BeersAdapter @Inject constructor(private val glide: RequestManager): Recyc
 
     @SuppressLint("NotifyDataSetChanged")
     fun setData(data: MutableList<BeerResponse>){
-        beerList.clear()
         beerList = data
         notifyDataSetChanged()
     }

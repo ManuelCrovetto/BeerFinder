@@ -29,7 +29,7 @@ class BeerFinderViewModel @Inject constructor(private val searchBeersByName: Sea
         get() = _beerList
 
 
-    fun searchImages(query: String){
+    fun searchBeers(query: String){
         viewModelScope.launch(IO) {
             _viewState.value = BeerFinderViewState(isLoading = true)
             if (validateQuery(query)){

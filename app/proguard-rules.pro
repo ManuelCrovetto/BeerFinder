@@ -19,3 +19,6 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#In case you activate the minify, I give instructions to Proguard to keep the package model
+-keep class com.macrosystems.beerfinder.data.model.** {*;}
