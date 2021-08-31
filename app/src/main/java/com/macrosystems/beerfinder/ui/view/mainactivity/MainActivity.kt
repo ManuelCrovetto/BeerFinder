@@ -41,9 +41,10 @@ class MainActivity : AppCompatActivity() {
                     root.lostConnectionSnackBar()
                     isConnected = false
                 } else {
-                    if (!isConnected)
+                    if (!isConnected) {
                     root.reconnectedSnackBar()
                     isConnected = true
+                    }
                 }
             }
         }
