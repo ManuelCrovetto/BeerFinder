@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     if (!isConnected)
                     root.reconnectedSnackBar()
+                    isConnected = true
                 }
             }
         }
