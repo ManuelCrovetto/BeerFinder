@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface PunkAPI {
 
-    @GET("beers?")
+    @GET("beers")
     suspend fun searchBeers(
         @Query("beer_name") searchQuery: String
     ): Response<List<BeerResponse>>

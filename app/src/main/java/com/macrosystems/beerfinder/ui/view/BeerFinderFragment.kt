@@ -94,8 +94,6 @@ class BeerFinderFragment @Inject constructor(
         }
     }
 
-
-
     private fun updateUI(viewState: BeerFinderViewState) {
         with(binding) {
             progressBar.isVisible = viewState.isLoading
