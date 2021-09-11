@@ -37,14 +37,13 @@ class MainActivity : AppCompatActivity() {
 
         connectionStatusLiveData.observe(this) { connectionStatus ->
             with(binding){
-                isConnected = if (!connectionStatus){
-                        root.lostConnectionSnackBar()
-                        false
-                    } else {
-                        if (!isConnected)
-                            root.reconnectedSnackBar()
-                        true
-                    }
+                if (!connectionStatus){
+                    root.lostConnectionSnackBar()
+                    isConnected = false
+                } else {
+                    if (!isConnected)
+                    root.reconnectedSnackBar()
+                }
             }
         }
     }
