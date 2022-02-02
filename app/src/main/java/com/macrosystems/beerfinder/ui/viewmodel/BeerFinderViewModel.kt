@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.macrosystems.beerfinder.data.model.BeerResponse
 import com.macrosystems.beerfinder.data.model.constants.Constants.SEARCH_DELAY_TIME
 import com.macrosystems.beerfinder.data.network.response.Result
-import com.macrosystems.beerfinder.domain.SearchBeersByName
+import com.macrosystems.beerfinder.domain.model.Beer
+import com.macrosystems.beerfinder.domain.usecases.SearchBeersByName
 import com.macrosystems.beerfinder.ui.view.viewstates.BeerFinderViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers.IO
@@ -24,8 +24,8 @@ class BeerFinderViewModel @Inject constructor(private val searchBeersByName: Sea
     val viewState: StateFlow<BeerFinderViewState>
         get() = _viewState
 
-    private val _beerList = MutableLiveData<MutableList<BeerResponse>>()
-    val beerList: LiveData<MutableList<BeerResponse>>
+    private val _beerList = MutableLiveData<MutableList<Beer>>()
+    val beerList: LiveData<MutableList<Beer>>
         get() = _beerList
 
 

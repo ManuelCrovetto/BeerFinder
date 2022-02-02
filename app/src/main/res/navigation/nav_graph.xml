@@ -26,6 +26,6 @@
         tools:layout="@layout/beer_details_fragment">
         <argument
             android:name="beerDetails"
-            app:argType="com.macrosystems.beerfinder.data.model.parcelize.BeerDetails" />
+            app:argType="com.macrosystems.beerfinder.domain.model.Beer" />
     </fragment>
 </navigation>
