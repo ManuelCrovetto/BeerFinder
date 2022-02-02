@@ -16,7 +16,6 @@ import com.macrosystems.beerfinder.R
 import com.macrosystems.beerfinder.core.dialog.ErrorDialog
 import com.macrosystems.beerfinder.core.dialog.launcher.DialogFragmentLauncher
 import com.macrosystems.beerfinder.core.ex.showDialog
-import com.macrosystems.beerfinder.data.model.parcelize.BeerDetails
 import com.macrosystems.beerfinder.databinding.BeerFinderFragmentBinding
 import com.macrosystems.beerfinder.ui.adapters.BeersAdapter
 import com.macrosystems.beerfinder.ui.view.viewstates.BeerFinderViewState
@@ -81,15 +80,8 @@ class BeerFinderFragment @Inject constructor(
     }
 
     private fun initRecyclerViewListeners() {
-        adapter.onClickListener = {
-            val action = BeerFinderFragmentDirections.actionBeerFinderFragmentToBeerDetailsFragment(
-                BeerDetails(
-                    name = it.name,
-                    image_url = it.image_url,
-                    description = it.description,
-                    alcoholByVolume = it.alcoholByVolume
-                )
-            )
+        adapter.onClickListener = { beer ->
+            val action = BeerFinderFragmentDirections.actionBeerFinderFragmentToBeerDetailsFragment(beer)
             findNavController().navigate(action)
         }
     }

@@ -7,21 +7,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
 import com.macrosystems.beerfinder.R
-import com.macrosystems.beerfinder.data.model.BeerResponse
+import com.macrosystems.beerfinder.domain.model.Beer
 import javax.inject.Inject
 
 class BeersAdapter @Inject constructor(private val glide: RequestManager): RecyclerView.Adapter<BeerViewHolder>() {
 
-    private var beerList: MutableList<BeerResponse> = mutableListOf()
+    private var beerList: MutableList<Beer> = mutableListOf()
 
-    var onClickListener: (BeerResponse) -> Unit = {}
+    var onClickListener: (Beer) -> Unit = {}
 
     private val notifyItemHasChanged: (Int) -> Unit = { adapterPosition ->
         notifyItemChanged(adapterPosition)
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(data: MutableList<BeerResponse>){
+    fun setData(data: MutableList<Beer>){
         beerList = data
         notifyDataSetChanged()
     }
