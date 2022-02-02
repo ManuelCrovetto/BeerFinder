@@ -26,7 +26,7 @@ lead you to its details, such as image, name, alcohol by volume, and description
   * Retrofit
 
   ## Unit Testing
-  * Mockito
+  * JUnit
   * Coroutines Test
   * Arch Core
   
