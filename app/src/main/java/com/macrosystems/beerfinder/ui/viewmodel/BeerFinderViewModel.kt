@@ -4,25 +4,25 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.macrosystems.beerfinder.core.providers.DefaultDispatchers
 import com.macrosystems.beerfinder.data.model.constants.Constants.SEARCH_DELAY_TIME
 import com.macrosystems.beerfinder.data.network.response.Result
 import com.macrosystems.beerfinder.domain.model.Beer
 import com.macrosystems.beerfinder.domain.usecases.SearchBeersByName
 import com.macrosystems.beerfinder.ui.view.viewstates.BeerFinderViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class BeerFinderViewModel @Inject constructor(private val searchBeersByName: SearchBeersByName): ViewModel() {
+class BeerFinderViewModel @Inject constructor(private val searchBeersByName: SearchBeersByName
+, private val defaultDispatchers: DefaultDispatchers): ViewModel() {
 
     private val _viewState = MutableStateFlow(BeerFinderViewState())
-    val viewState: StateFlow<BeerFinderViewState>
-        get() = _viewState
+    val viewState = _viewState.asStateFlow()
 
     private val _beerList = MutableLiveData<MutableList<Beer>>()
     val beerList: LiveData<MutableList<Beer>>
@@ -30,7 +30,7 @@ class BeerFinderViewModel @Inject constructor(private val searchBeersByName: Sea
 
 
     fun searchBeers(query: String){
-        viewModelScope.launch(IO) {
+        viewModelScope.launch(defaultDispatchers.io) {
             _viewState.value = BeerFinderViewState(isLoading = true)
             if (validateQuery(query)){
                 delay(SEARCH_DELAY_TIME)
