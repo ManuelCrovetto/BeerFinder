@@ -40,7 +40,8 @@ class BeerFinderViewModelTest {
     fun setUp() {
         MockKAnnotations.init(this)
         testDispatchers = TestDispatchers()
-        getBeersViewModel = BeerFinderViewModel(getBeersByName, testDispatchers)
+        getBeersViewModel = BeerFinderViewModel(getBeersByName)
+        getBeersViewModel.defaultDispatchers = testDispatchers
         Dispatchers.setMain(testDispatchers.testDispatcher)
     }
 
